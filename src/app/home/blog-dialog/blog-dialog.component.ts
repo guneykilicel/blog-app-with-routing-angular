@@ -8,12 +8,17 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
 })
 export class BlogDialogComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialogRef<BlogDialogComponent>) {
-    debugger;
-    if(data) {
+  isUpdate: boolean = false;
 
+  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialogRef<BlogDialogComponent>) {
+    if(data.isUpdate) {
+      this.isUpdate = true;
     } else {
       
     }
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 }

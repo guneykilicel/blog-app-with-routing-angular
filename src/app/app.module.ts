@@ -11,7 +11,9 @@ import { BaseService } from './services/base.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BlogDialogComponent } from './home/blog-dialog/blog-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog'
     MatButtonModule,
     HttpClientModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule
   ],
   providers: [BaseService],
   bootstrap: [AppComponent]
