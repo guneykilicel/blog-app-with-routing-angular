@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
 import { CommentService } from 'src/app/services/comment.service';
+import { FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-blog-dialog',
@@ -15,9 +16,18 @@ export class BlogDialogComponent {
   body: string = "";
   commentData: any;
 
+  form = new FormGroup({
+    title: new FormControl(null, [Validators.required]),
+    body: new FormControl(null, [Validators.required])
+  })
+
   constructor(private commentService: CommentService, @Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialogRef<BlogDialogComponent>) {
     if(data.isUpdate) {
       this.isUpdate = true;
+      this.form.patchValue({
+        title: data.blog.title,
+        body: data.blog.body
+      })
     } else {
       this.imageUrl = data.blog.imageId.toString();
       this.title = data.blog.title;
@@ -29,6 +39,10 @@ export class BlogDialogComponent {
     this.commentService.getComments().subscribe((res)=> {
       this.commentData = res.filter((x: {postId:any;}) => x.postId == this.data.blog.id);
     })
+  }
+
+  onSubmit() {
+    
   }
 
   close() {
