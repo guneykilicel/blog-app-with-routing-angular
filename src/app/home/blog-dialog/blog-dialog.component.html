@@ -1,16 +1,33 @@
-<div class="d-flex justify-content-between">
-    <div class="d-flex align-items-center">
-        <h3 class="m-0">
-            <span>
-                {{isUpdate ? 'Yazıyı Güncelle':'Yazıyı Gör'}}
-            </span>
-        </h3>
+<div class="p-4">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <h3 class="m-0">
+                <span>
+                    {{isUpdate ? 'Yazıyı Güncelle':'Yazıyı Gör'}}
+                </span>
+            </h3>
+        </div>
+        
+        <button (click)="close()" mat-button style="font-size: 24px;">
+            x
+        </button>
+        
+    </div>
+    <mat-divider></mat-divider>
+    
+    <div *ngIf="!isUpdate">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="w-100" src="assets/images/image{{imageUrl}}.jpg">
+            </div>
+            <div class="col-md-6">
+                <h2>{{title}}</h2>
+                <p>{{body}}</p>
+            </div>
+        </div>
     </div>
     
-    <button (click)="close()" mat-button style="font-size: 24px;">
-        x
-    </button>
-    
+    <div *ngIf="isUpdate">
+    Düzenle
+    </div>
 </div>
-<mat-divider></mat-divider>
-    <hr>
