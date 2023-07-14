@@ -26,6 +26,17 @@ export class HomeComponent {
   openDialog(element:any, vieworupdate: any) {
     const dialogRef = this.dialog.open(BlogDialogComponent, {
       data: {blog: element, isUpdate: vieworupdate}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getBlogList();
+    })
+  }
+
+  getBlogList() {
+    this.blogService.getPosts().subscribe((res) => {
+      console.log(res);
+      this.blogData = res;
     })
   }
 }
