@@ -16,13 +16,23 @@
     <mat-divider></mat-divider>
     
     <div *ngIf="!isUpdate">
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row mb-3">
+            <div class="col-md-6" style="padding-left: 0px;">
                 <img class="w-100" src="assets/images/image{{imageUrl}}.jpg">
             </div>
             <div class="col-md-6">
                 <h2>{{title}}</h2>
                 <p>{{body}}</p>
+            </div>
+        </div>
+        <div style="background-color: lightgray; margin-bottom: 20px; padding: 20px;" 
+        class="row" *ngFor="let comment of commentData">
+            <div class="col-md-2">
+                <img style="width: 35px; height: 35px; border-radius: 50%;" src="assets/images/profile/profile{{comment.userId}}.jpg">
+            </div>
+            <div class="col-md-10">
+                <h3>{{comment.name}}</h3>
+                <p>{{comment.body}}</p>
             </div>
         </div>
     </div>
