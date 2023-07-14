@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BlogService } from '../services/blog.service';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  blogData: Array<any> = [];
+
+  constructor(private blogService:BlogService) {}
+
+  ngOnInit(): void {
+    this.blogService.getPosts().subscribe((res) => {
+      console.log(res);
+      this.blogData = res;
+    })
+  }
 }
