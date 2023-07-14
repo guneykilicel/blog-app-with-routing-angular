@@ -7,14 +7,14 @@
                 </span>
             </h3>
         </div>
-        
+
         <button (click)="close()" mat-button style="font-size: 24px;">
             x
         </button>
-        
+
     </div>
-    <mat-divider></mat-divider>
-    
+    <mat-divider class="mb-2"></mat-divider>
+
     <div *ngIf="!isUpdate">
         <div class="row mb-3">
             <div class="col-md-6" style="padding-left: 0px;">
@@ -25,10 +25,11 @@
                 <p>{{body}}</p>
             </div>
         </div>
-        <div style="background-color: lightgray; margin-bottom: 20px; padding: 20px;" 
-        class="row" *ngFor="let comment of commentData">
+        <div style="background-color: lightgray; margin-bottom: 20px; padding: 20px;" class="row"
+            *ngFor="let comment of commentData">
             <div class="col-md-2">
-                <img style="width: 35px; height: 35px; border-radius: 50%;" src="assets/images/profile/profile{{comment.userId}}.jpg">
+                <img style="width: 35px; height: 35px; border-radius: 50%;"
+                    src="assets/images/profile/profile{{comment.userId}}.jpg">
             </div>
             <div class="col-md-10">
                 <h3>{{comment.name}}</h3>
@@ -36,8 +37,26 @@
             </div>
         </div>
     </div>
-    
+
     <div *ngIf="isUpdate">
-    Düzenle
+        <form [formGroup]="form" style="min-width: 350px;">
+            <div class="container">
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Blog Başlığı</mat-label>
+                        <input matInput formControlName="title">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Blog İçeriği</mat-label>
+                        <textarea matInput formControlName="body" cols="40" rows="10"></textarea>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button (click)="onSubmit()" [disabled]="!form.valid" mat-raised-button color="primary">Güncelle</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

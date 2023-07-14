@@ -13,6 +13,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BlogDialogComponent } from './home/blog-dialog/blog-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,11 @@ import {MatDividerModule} from '@angular/material/divider';
     HttpClientModule,
     NgbModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [BaseService],
   bootstrap: [AppComponent]
