@@ -16,12 +16,16 @@ import {MatDividerModule} from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { ViewBlogComponent } from './view-blog/view-blog.component';
+import { UpdateBlogComponent } from './update-blog/update-blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BlogDialogComponent
+    BlogDialogComponent,
+    ViewBlogComponent,
+    UpdateBlogComponent
   ],
   imports: [
     BrowserModule,

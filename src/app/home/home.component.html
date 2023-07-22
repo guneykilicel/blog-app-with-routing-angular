@@ -25,8 +25,10 @@
                     </p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button (click)="openDialog(post,false)" style="margin-right: 6px;" mat-raised-button color="primary">Görüntüle</button>
-                    <button (click)="openDialog(post,true)" mat-raised-button color="accent">Düzenle</button>
+                    <!--MODAL YAPISI <button (click)="openDialog(post,false)" style="margin-right: 6px;" mat-raised-button color="primary">Görüntüle</button>
+                    <button (click)="openDialog(post,true)" mat-raised-button color="accent">Düzenle</button> -->
+                    <button [routerLink]="'/view-blog/'+post.id" style="margin-right: 6px;" mat-raised-button color="primary">Görüntüle</button>
+                    <button [routerLink]="'/update-blog/'+post.id" mat-raised-button color="accent">Düzenle</button>
                 </mat-card-actions>
             </mat-card>
         </div>

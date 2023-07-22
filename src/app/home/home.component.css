@@ -10,3 +10,7 @@
   .mat-mdc-card-header {
     justify-content: center;
   }
+
+  app-blog-dialog .mat-dialog-container {
+    height: auto !important;
+  }
